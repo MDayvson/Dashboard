@@ -1,0 +1,5 @@
+https://docs.streamlit.io/
+
+
+executar o comando : streamlit run dashboards.py
+para rodar o dashboards.py
