@@ -14,6 +14,9 @@ df = pd.read_csv("supermarket_sales.csv", sep=";", decimal=",")
 df["Date"] = pd.to_datetime(df["Date"])
 df = df.sort_values("Date")
 
+# df.info()
+# print(df)
+
 df["Month"] = df["Date"].apply(lambda x: str(x.year) + "-" + str(x.month))
 month = st.sidebar.selectbox("Mês", df["Month"].unique())
 
