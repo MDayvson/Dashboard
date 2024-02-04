@@ -2,7 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.set_page_config(layout="wide")
+
+# Configuração da página
+st.set_page_config(
+    page_title="supermarket_sales Dashboard",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 
 # Com uma visão mensal
 # faturamento por unidade… 
@@ -14,8 +21,8 @@ df = pd.read_csv("supermarket_sales.csv", sep=";", decimal=",")
 df["Date"] = pd.to_datetime(df["Date"])
 df = df.sort_values("Date")
 
-# df.info()
-# print(df)
+df.info()
+print(df)
 
 df["Month"] = df["Date"].apply(lambda x: str(x.year) + "-" + str(x.month))
 month = st.sidebar.selectbox("Mês", df["Month"].unique())
